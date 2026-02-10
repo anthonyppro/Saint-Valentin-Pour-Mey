@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Informations de la page -->
+  <meta charset="UTF-8">  <!-- Encodage UTF-8 pour les accents -->
+  <title>Message d'amour</title>  <!-- Titre dans l'onglet -->
+  <link rel="stylesheet" href="style.css">  <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+  <!-- Image en haut à gauche -->
+  <img src="photo16.jpg" alt="Main" class="image-coin image-haut-gauche">
+  
+  <!-- Image en bas à droite -->
+  <img src="photo18.jpg" alt="Mirror" class="image-coin image-bas-droite">
+  
+  <!-- Conteneur principal -->
+  <div class="content-wrapper">
+    <!-- Boîte avec le texte et boutons -->
+    <div class="container">
+      <!-- Titre principal -->
+      <h1>💖 Tu veux qu'on soit ensemble ?<br>Pour la Saint-Valentin 💖</h1>
+      
+      <!-- Les deux boutons -->
+      <div class="buttons">
+        <button class="yes">❤️ Oui</button>  <!-- Bouton OUI -->
+        <button class="no">💔 Non</button>    <!-- Bouton NON -->
+      </div>
+      
+      <!-- Message qui s'affiche quand on clique OUI -->
+      <div id="message">Je t'aime ! 💖 J'ai trop hâte de passer du temps avec toi ! Mon ange 💖</div>
+      
+      <!-- Image qui s'affiche quand on clique NON (overlay en grand écran) -->
+      <div id="error" class="error-modal">
+        <img src="openclipart-vectors-attention-147439.svg" alt="Image d'erreur" class="error-image">
+      </div>
+    </div>
+    
+    <!-- Image des oursons -->
+    <img src="teddy.png" alt="Oursons"  class="teddy-image">
+  </div>
+  
+  <!-- Conteneur pour les confettis -->
+  <div id="confettis"></div>
+  
+  <!-- Lien vers le fichier JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

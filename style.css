@@ -1,0 +1,185 @@
+/* ===== STYLE DE LA PAGE PRINCIPALE ===== */
+body {
+  margin: 0;                           /* Pas de marges autour */
+  padding: 50px;                       /* Espace intérieur */
+  background-image: url('rose.png');   /* Image de fond (rose) */
+  background-size: cover;              /* Image remplit tout */
+  background-position: center;         /* Centrer l'image */
+  color: white;                        /* Texte en blanc */
+  text-align: center;                  /* Texte centré */
+  font-family: Arial, sans-serif;      /* Police de caractères */
+  position: relative;                  /* Position relative pour les images */
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+.content-wrapper {
+  max-width: 600px;    /* Largeur maximale */
+  margin: 0 auto;      /* Centre le contenu */
+}
+
+/* ===== BOÎTE AVEC LE TEXTE ET BOUTONS ===== */
+.container {
+  background: rgba(0, 0, 0, 0.3);  /* Fond noir semi-transparent */
+  padding: 50px;                   /* Espace intérieur */
+  border-radius: 15px;             /* Coin arrondis */
+  margin-bottom: 0px;             /* Espace en bas */
+}
+
+/* ===== LE TITRE PRINCIPAL ===== */
+h1 {
+  font-size: 28px;  /* Taille du texte */
+  margin: 20px 0;   /* Espace autour */
+}
+
+/* ===== CONTENEUR DES BOUTONS ===== */
+.buttons {
+  display: flex;        /* Les boutons côte à côte */
+  gap: 50px;            /* Espace entre les boutons */
+  justify-content: center; /* Boutons centrés */
+  margin-top: 50px;     /* Espace au dessus */
+}
+
+/* ===== STYLE DE TOUS LES BOUTONS ===== */
+button {
+  padding: 12px 30px;   /* Espace intérieur */
+  font-size: 16px;      /* Taille du texte */
+  border: none;         /* Pas de bordure */
+  border-radius: 8px;   /* Coins arrondis */
+  cursor: pointer;      /* Curseur en main */
+  color: white;         /* Texte blanc */
+}
+
+/* ===== BOUTON OUI (rouge) ===== */
+.yes {
+  background: #8a4753;  /* Couleur rouge/rose */
+}
+
+/* ===== BOUTON NON (gris) ===== */
+.no {
+  background: #6c757d;  /* Couleur gris */
+}
+
+/* ===== EFFET HOVER SUR LES BOUTONS ===== */
+button:hover {
+  opacity: 0.9;  /* Bouton devient un peu transparent au survol */
+}
+
+/* ===== MESSAGE ERREUR (caché par défaut) ===== */
+#error {
+  /* Modal qui prend tout l'écran */
+  position: fixed;           /* Fixe sur l'écran */
+  top: 0;                    /* En haut */
+  left: 0;                   /* À gauche */
+  width: 100%;               /* Remplit la largeur */
+  height: 100%;              /* Remplit la hauteur */
+  background: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  display: none;             /* Caché au début */
+  align-items: center;       /* Centre verticalement */
+  justify-content: center;   /* Centre horizontalement */
+  z-index: 1000;             /* Au-dessus de tout */
+  opacity: 0;                /* Invisible au début */
+  transition: opacity 0.5s ease; /* Animation fluide */
+}
+
+/* ===== QUAND ON AFFICHE L'IMAGE D'ERREUR ===== */
+#error.show {
+  display: flex;  /* Affiche en flex (centré) */
+  opacity: 1;     /* Devient visible */
+}
+
+/* ===== L'IMAGE D'ERREUR DANS LE MODAL ===== */
+.error-image {
+  max-width: 90%;     /* 90% de la largeur d'écran */
+  max-height: 90%;    /* 90% de la hauteur d'écran */
+  width: auto;        /* Largeur automatique */
+  height: auto;       /* Hauteur automatique */
+  animation: zoomIn 0.5s ease; /* Animation d'apparition */
+}
+
+/* ===== ANIMATION D'APPARITION (zoom) ===== */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);  /* Commence petit */
+    opacity: 0;             /* Invisible */
+  }
+  to {
+    transform: scale(1);    /* Devient normal */
+    opacity: 1;             /* Visible */
+  }
+}
+
+/* ===== MESSAGE D'AMOUR (caché par défaut) ===== */
+#message {
+  font-size: 30px;           /* Taille du texte */
+  margin-top: 20px;          /* Espace au dessus */
+  color: #3a0d0d;            /* Couleur rouge */
+  opacity: 0;                /* Invisible au début */
+  visibility: hidden;        /* Pas de place prise dans la page */
+  transform: translateY(-30px); /* Texte plus haut */
+  transition: all 0.5s ease; /* Animation fluide (0.5 secondes) */
+  background: rgba(255, 255, 255, 0.7);  /* Fond noir semi-transparent */
+  padding: 20px;                   /* Espace intérieur */
+  border-radius: 15px;             /* Coin arrondis */
+  margin-bottom: 0px;             /* Espace en bas */
+}
+
+/* ===== QUAND ON AFFICHE LE MESSAGE D'AMOUR ===== */
+#message.show {
+  opacity: 1;           /* Devient visible */
+  visibility: visible;  /* Prend sa place */
+  transform: translateY(0px); /* Redescend à la place normale */
+}
+
+/* ===== CONTENEUR DES CONFETTIS ===== */
+#confettis {
+  position: fixed;  /* Fixe sur l'écran */
+  top: 0;           /* En haut */
+  left: 0;          /* À gauche */
+  width: 100%;      /* Remplit la largeur */
+  height: 100%;     /* Remplit la hauteur */
+  pointer-events: none; /* Les confettis ne bloquent pas les clics */
+  z-index: 999;     /* Au-dessus du contenu */
+}
+
+/* ===== STYLE D'UN CONFETTI ===== */
+.confetti {
+  position: absolute;  /* Position absolue */
+  width: 10px;         /* Largeur du confetti */
+  height: 10px;        /* Hauteur du confetti */
+  pointer-events: none; /* Ne bloque pas les clics */
+}
+
+/* ===== ANIMATION DE CHUTE DES CONFETTIS ===== */
+@keyframes chute {
+  from {
+    top: -10px;      /* Commence en haut */
+    opacity: 1;      /* Visible */
+  }
+  to {
+    top: 100vh;      /* Tombe en bas */
+    opacity: 0;      /* Disparaît */
+  }
+}
+
+/* ===== IMAGES AUX EXTRÉMITÉS ===== */
+.image-coin {
+  position: fixed;         /* Fixe sur l'écran */
+  border: 10px solid rgb(112, 80, 148); /* Bordure noire de 10px */
+  max-width: 150px;        /* Largeur maximale */
+  height: auto;            /* Hauteur automatique */
+  z-index: 500;            /* Au-dessus du contenu normal */
+  border-radius: 10px;             /* Coin arrondis */
+}
+
+/* ===== IMAGE EN HAUT À GAUCHE ===== */
+.image-haut-gauche {
+  top: 20px;    /* 20px du haut */
+  left: 50px;   /* 20px de la gauche */
+}
+
+/* ===== IMAGE EN BAS À DROITE ===== */
+.image-bas-droite {
+  bottom: 20px; /* 20px du bas */
+  right: 50px;  /* 20px de la droite */
+  transform: scaleX(-1); /* Retourne l'image horizontalement */
+}
